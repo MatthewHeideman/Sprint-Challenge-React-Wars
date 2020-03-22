@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from "axios";
-import Card from './components/Card';
+import StarCard from './components/StarCard';
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -39,7 +39,12 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <Card data = {data} />
+      {data.map((item, i) => {
+        return (
+          <StarCard name = {item.name}  height = {item.height} eye = {item.eye_color} hair = {item.hair_color} key = {i}/>
+        )
+      })}
+      
     </div>
   );
 
